@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "app/log-visit.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/log-visit", "dest": "app/log-visit.js" }
+  ]
+}

@@ -6,10 +6,12 @@ async function connectToDatabase() {
   if (cachedDb) return cachedDb;
   // Fallback to a hardcoded check if environment variables aren't injected yet
   const uri = process.env.MONGODB_URI;
+  const dbName = process.env.DATABASE_NAME;
   if (!uri) throw new Error("MONGODB_URI environment variable is missing!");
+  if (!dbName) throw new Error("DATABASE_NAME environment variable is missing!");
   
   const client = await MongoClient.connect(uri);
-  cachedDb = client.db(); // Uses the default database defined in your connection string
+  cachedDb = client.db(dbName); // Uses the default database defined in your connection string
   return cachedDb;
 }
 

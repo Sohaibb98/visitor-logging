@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/log-visit", "dest": "/api/log-visit.js" }
+  ]
+}
